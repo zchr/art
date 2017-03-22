@@ -1,5 +1,5 @@
 # Art
-A Chrome extension to get a quick art history lesson with each new tab.
+A Chrome extension that gives quick art history lesson with each new tab.
 
 ## It's live!
 Just head over to the [Chrome Web Store](https://developer.chrome.com/webstore/publish) and download it.
@@ -9,8 +9,9 @@ Just head over to the [Chrome Web Store](https://developer.chrome.com/webstore/p
 
 Just kidding--that's [Amazon](https://www.amazon.com/b?node=16008589011).
 
- This thing just grabs an image by searching the MET's database. For an element of surprise, it randomly grabs the art material, the method by which it sorts and it changes the number of results (and the page number) to return.
+ This thing just grabs an image by searching the MET's database. For an element of surprise, it randomly grabs a material, the method by which it sorts, and the number of results (and the page number) to return.
 
+### More like this
 If you find yourself really enjoying results for, say, `color lithographs`, click the `more like this` button to increase the prevalence going forward.
 
 ## Thank you, MET
@@ -19,4 +20,5 @@ In February, they released hundreds of thousands of photos of art. In doing so, 
  - Search [their collection](http://www.metmuseum.org/art/collection#!?perPage=20&showOnly=withImage%7Copenaccess&sortBy=Relevance&sortOrder=asc&offset=0&pageSize=0)
 
 ---
-This project is licensed under the MIT license.
+## License
+This project is released under the MIT License.
