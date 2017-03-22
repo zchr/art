@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-	font-size: 28px;
+	font-size: 24px;
 }
 
 img {
@@ -32,12 +32,117 @@ img {
 
 nav {
 	position: fixed;
+	z-index: 10;
+}
+
+nav a.btn {
+	border-radius: 20px;
+	padding: 9px 12px;
+}
+
+nav.nav-top-left a:not(.checked).btn:hover, nav.nav-bottom-right a.btn:hover {
+	padding: 7px 12px;
+}
+
+nav.nav-bottom-right {
 	bottom: 20px;
 	right: 20px;
 }
 
-@media (max-width: 750px) {
-	nav a > span {
-		display: none;
-	}
+nav.nav-top-left {
+	top: 20px;
+	left: 20px;
+	overflow: hidden;
+}
+
+nav.nav-top-left a > *:not(.btn-close) {
+	position: relative;
+	top: 0;
+	transition: top .5s;
+}
+
+nav.nav-top-left a .btn-close {
+	display: block;
+	position: absolute;
+	top: -40px;
+	margin: 0;
+	transition: top .5s;
+}
+
+nav.nav-top-left a.checked .btn-close {
+	position: relative;
+	top: 0;
+}
+
+nav.nav-top-left a.checked > span {
+	display: none;
+}
+
+nav.nav-top-left a.checked > *:not(.btn-close) {
+	position: absolute;
+	top: 40px;
+}
+
+nav a {
+	width: 38px;
+	overflow: hidden;
+	transition: width .3s;
+}
+
+nav a span {
+	display: none;
+}
+
+nav.nav-bottom-right a:hover {
+	width: 126px;
+}
+
+nav.nav-top-left a:not(.checked):hover {
+	width: 110px;
+}
+
+nav a:hover > span {
+	display: inline-block;
+}
+
+.about {
+	position: fixed;
+	top: -100%;
+	left: 20px;
+	max-width: 30%;
+	transition: top .3s, left .3s;
+	visibility: hidden;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #fff;
+	padding: 5px 10px;
+}
+
+.about.checked-move-top {
+	visibility: visible;
+	top: 70px;
+}
+
+.about.checked-move-left {
+	visibility: visible;
+	top: 70px;
+	left: -31%;
+}
+
+.about > * {
+	padding: 5px 5px 5px 0;
+	margin: 0;
+}
+
+.about > *:not(h1) {
+	display: inline-block;
+}
+
+.about a {
+	color: #333;
+}
+
+.about a:hover {
+	text-decoration: none;
+	color: #1ecd97;
 }

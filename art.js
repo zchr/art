@@ -1,4 +1,4 @@
-function requestR() {
+function newRequest() {
 	var request = {
 		page: getRandomNumber(30),
 		perPage: getRandomNumber(30),
@@ -46,26 +46,50 @@ var getImage = function(request) {
 	});
 }
 
-var r = requestR();
-var p = getImage(r);
-$.when(p).done(function() {
-	var i = parseImage(p);
-	console.log(i);
+// grab an image for now
+function imageNow() {
+	var i = localStorage.getItem('image');
+	var m = localStorage.getItem('material')
+	if (i && m) {
+		i = JSON.parse(i);
+		setImage(i, m);
+	} else {
+		var r = newRequest();
+		var p = getImage(r);
+		$.when(p).done(function() {
+			i = parseImage(pNow);
+			setImage(i, r.material);
+		});
+	}
+	removeLoading();
+}
+
+function setImage(i, m) {
 	$('img').attr('src', 'http://images.metmuseum.org/CRDImages/'+i.largeImage);
-	$('#title').append($.parseHTML(i.title));
-	var desc = (i.description == ' ' ? 'unknown' : i.description);
-	$('#desc').append($.parseHTML(desc));
+	$('#title').append($.parseHTML(i.title || 'Untitled'));
 	$('#date').append(i.date || 'n.d.');
 	$('#info').attr('href', 'http://metmuseum.org'+i.url);
-	$('#like').attr('material', r.material)
-	removeLoading();
-});
+	$('#like').attr('material', m)
+}
+
+// grab a new image for next time
+function imageLater() {
+	var r = newRequest();
+	var p = getImage(r);
+	$.when(p).done(function() {
+		var i = parseImage(p);
+		console.log(i);
+		var s = JSON.stringify(i);
+		localStorage.setItem('material', r.material);
+		localStorage.setItem('image', s);
+	});
+}
 
 function removeLoading() {
-	setTimeout(function() {
+	$(window).on('load', function() {
 		$('.loading').remove();
 		$('.content').css('display', 'block');
-	}, 750);
+	});
 }
 
 function addMaterial(m) {
@@ -80,23 +104,8 @@ function removeMaterial() {
 	localStorage.setItem('materials', materials.join(','));
 }
 
-// set hidden images and cache them
-function cache(res) {
-	var image = parseImage(res);
-	var img = $('.secret img[src=""]').first();
-	$(img).attr('src', 'http://images.metmuseum.org/CRDImages/'+image.largeImage);
-}
-
-var promises = $('.secret img').map(function() {
-	var request = requestR();
-	return getImage(request);
-});
-
-$.when.apply($, promises.get()).then(function() {
-	promises.each(function() {
-		cache(this);
-	});
-});
+imageNow();
+imageLater();
 
 $('#like').click(function() {
 	$(this).toggleClass('checked');
@@ -105,5 +114,15 @@ $('#like').click(function() {
 		addMaterial(m);
 	} else {
 		removeMaterial();
+	}
+});
+
+$('#about').click(function() {
+	$(this).toggleClass('checked');
+	if ($(this).hasClass('checked')) {
+		$('.about').removeClass('checked-move-left').addClass('checked-move-top');
+	} else {
+		$('.about').removeClass('checked-move-top').addClass('checked-move-left');
+		setTimeout(function() { $('.about').removeClass('checked-move-left'); }, 300);
 	}
 });
