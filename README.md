@@ -2,7 +2,7 @@
 A Chrome extension that gives quick art history lesson with each new tab.
 
 ## It's live!
-Just head over to the [Chrome Web Store](https://developer.chrome.com/webstore/publish) and download it.
+Just head over to the [Chrome Web Store](https://chrome.google.com/webstore/detail/camjlcjebflgchepghjpjeiddegldhae) and download it.
 
 ## Under the hood
 > We use computer vision, deep learning algorithms, and sensor fusion, much like you'd find in self-driving cars.
