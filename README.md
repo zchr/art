@@ -14,8 +14,8 @@ Just kidding--that's [Amazon](https://www.amazon.com/b?node=16008589011).
 ### More like this
 If you find yourself really enjoying results for, say, `color lithographs`, click the `more like this` button to increase the prevalence going forward.
 
-## Thank you, MET
-In February, they released hundreds of thousands of photos of art. In doing so, they both inspired this project as a means to absorb more art and made it possible. Thank you.  
+## Thank you, Met
+In February, the Met released hundreds of thousands of photos of art. In doing so, they both inspired this project as a means to absorb more art and made it possible. Thank you.  
  - Read [about it](https://www.nytimes.com/2017/02/07/arts/design/met-museum-makes-375000-images-available-for-free.html?_r=0)
  - Search [their collection](http://www.metmuseum.org/art/collection#!?perPage=20&showOnly=withImage%7Copenaccess&sortBy=Relevance&sortOrder=asc&offset=0&pageSize=0)
 
