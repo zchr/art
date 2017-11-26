@@ -50,7 +50,7 @@ var getImage = function(request) {
 function imageNow() {
 	var i = localStorage.getItem('image');
 	var m = localStorage.getItem('material')
-	if (i && m) {
+	if (i && m && i != 'undefined') {
 		i = JSON.parse(i);
 		setImage(i, m);
 	} else {
@@ -80,6 +80,9 @@ function imageLater() {
 		var i = parseImage(p);
 		console.log(i);
 		var s = JSON.stringify(i);
+		if (s == 'undefined') {
+			imageLater() // try again
+		}
 		localStorage.setItem('material', r.material);
 		localStorage.setItem('image', s);
 	});
